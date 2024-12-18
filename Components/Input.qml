@@ -22,10 +22,9 @@
 // along with SDDM Sugar Candy. If not, see <https://www.gnu.org/licenses/>
 //
 
-import QtQuick 2.11
-import QtQuick.Layouts 1.11
-import QtQuick.Controls 2.4
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 
 Column {
     id: inputContainer
@@ -87,16 +86,21 @@ Column {
 
             indicator: Button {
                     id: usernameIcon
-                    width: selectUser.height * 0.8
+                    width: selectUser.height * 1
                     height: parent.height
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.leftMargin: selectUser.height * 0.125
+                    anchors.leftMargin: selectUser.height * 0
                     icon.height: parent.height * 0.25
                     icon.width: parent.height * 0.25
                     enabled: false
-                    icon.color: root.palette.text
+                    icon.color: config.UserIconColor 
                     icon.source: Qt.resolvedUrl("../Assets/User.svgz")
+
+                    background: Rectangle {
+                        color: "transparent"
+                        border.color: "transparent"
+                    }
             }
 
             background: Rectangle {
@@ -124,15 +128,6 @@ Column {
                     radius: config.RoundCorners / 2
                     color: root.palette.window
                     layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 0
-                        verticalOffset: 10 * config.InterfaceShadowSize
-                        radius: 20 * config.InterfaceShadowSize
-                        samples: 41 * config.InterfaceShadowSize
-                        cached: true
-                        color: Qt.hsla(0,0,0,config.InterfaceShadowOpacity)
-                    }
                 }
 
                 enter: Transition {
