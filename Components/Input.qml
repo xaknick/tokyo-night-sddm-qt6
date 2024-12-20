@@ -58,6 +58,7 @@ Column {
             KeyNavigation.down: username
             KeyNavigation.right: username
             z: 2
+            focusPolicy: Qt.NoFocus
 
             model: userModel
             currentIndex: model.lastIndex
