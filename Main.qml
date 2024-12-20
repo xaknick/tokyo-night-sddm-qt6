@@ -258,5 +258,19 @@ Pane {
             sourceRect: Qt.rect(x,y,width,height)
             visible: config.FullBlur == "true" || config.PartialBlur == "true" ? true : false
         }
+
+        MultiEffect {
+            id: blur
+
+            height: parent.height
+            width: config.FullBlur == "true" ? parent.width : form.width
+            source: config.FullBlur == "true" ? backgroundImage : blurMask
+            blurEnabled: true
+            autoPaddingEnabled: false
+            blur: config.Blur == "" ? 2.0 : config.Blur
+            blurMax: config.BlurMax == "" ? 48 : config.BlurMax
+            anchors.centerIn: config.FullBlur == "true" ? parent : form
+            visible: config.FullBlur == "true" || config.PartialBlur == "true" ? true : false
+        }
     }
 }
