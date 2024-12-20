@@ -451,7 +451,7 @@ Column {
 
     Item {
         id: login
-        height: root.font.pointSize * 3
+        height: root.font.pointSize * 4
         width: parent.width / 2
         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -475,7 +475,7 @@ Column {
 
             background: Rectangle {
                 id: buttonBackground
-                color: "white"
+                color: config.AccentColor 
                 opacity: 0.2
                 radius: config.RoundCorners || 0
             }
@@ -504,6 +504,7 @@ Column {
                     PropertyChanges {
                         target: loginButton.contentItem
                         opacity: 1
+                        color: root.palette.highlight.hslLightness >= 0.7 ? "#16161E" : "white"
                     }
                 },
                 State {
@@ -517,6 +518,7 @@ Column {
                     PropertyChanges {
                         target: loginButton.contentItem
                         opacity: 1
+                        color: root.palette.highlight.hslLightness >= 0.7 ? "#16161E" : "white"
                     }
                 },
                 State {
@@ -530,6 +532,7 @@ Column {
                     PropertyChanges {
                         target: loginButton.contentItem;
                         opacity: 1
+                        color: root.palette.highlight.hslLightness >= 0.7 ? "#16161E" : "white"
                     }
                 }
             ]
